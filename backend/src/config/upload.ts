@@ -1,4 +1,3 @@
-import { request } from 'express';
 import multer from 'multer';
 import path from 'path';
 
@@ -8,7 +7,7 @@ export default {
     filename: (request, file, cb) => {
       const fileName = `${Date.now()}-${file.originalname}`;
 
-      cb(null, fileName);
+      cb(null,fileName)
     },
   })
-}
+};

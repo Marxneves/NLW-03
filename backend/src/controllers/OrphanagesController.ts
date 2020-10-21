@@ -1,14 +1,13 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
-import orphanageView from '../views/orphanages_views'
+import orphanageView from '../views/orphanages_view';
 import Orphanage from '../models/Orphanage';
 import * as Yup from 'yup';
 
 export default {
-
   async index(request: Request, response: Response) {
     const orphanagesRepository = getRepository(Orphanage);
-
+    
     const orphanages = await orphanagesRepository.find({
       relations: ['images']
     });
@@ -18,8 +17,9 @@ export default {
 
   async show(request: Request, response: Response) {
     const { id } = request.params;
-    const orphanagesRepository = getRepository(Orphanage);
 
+    const orphanagesRepository = getRepository(Orphanage);
+    
     const orphanage = await orphanagesRepository.findOneOrFail(id, {
       relations: ['images']
     });
@@ -28,7 +28,8 @@ export default {
   },
 
   async create(request: Request, response: Response) {
-    const {
+    
+    const { 
       name,
       latitude,
       longitude,
@@ -41,11 +42,11 @@ export default {
     const orphanagesRepository = getRepository(Orphanage);
 
     const requestImages = request.files as Express.Multer.File[];
-    
     const images = requestImages.map(image => {
-      return {path: image.filename}
+      return { path: image.filename }
     })
   
+
     const data = {
       name,
       latitude,
@@ -54,7 +55,7 @@ export default {
       instructions,
       opening_hours,
       open_on_weekends: open_on_weekends === 'true',
-      images,
+      images
     }
 
     const schema = Yup.object().shape({
@@ -69,16 +70,17 @@ export default {
         Yup.object().shape({
           path: Yup.string().required()
         })
-      ),
+      )
     })
 
     await schema.validate(data, {
       abortEarly: false,
-    })
-    
+    });
+
     const orphanage = orphanagesRepository.create(data);
   
     await orphanagesRepository.save(orphanage);
+  
     return response.status(201).json(orphanage);
   }
 };
