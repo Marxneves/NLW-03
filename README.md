@@ -1,5 +1,6 @@
 <h1 align="center">
-  <img width=100 src='web/src/images/Logo.svg'>
+  <img width=46 src='web/src/images/Group 17.svg'>
+  <img src='web/src/images/logo-preto.svg'>
 </h1>
 <ul>
 <li><a href="#sobre"> Sobre</a></li>
@@ -74,7 +75,7 @@ Clone o repositório e instale as dependências:
 git clone git@github.com:Marxneves/NLW-03.git
 
 # navegue até a pasta:
-cd nlw3_omnistack/backend
+cd NLW3-03/backend
 
 # instale as dependências:
 npm install
@@ -89,7 +90,7 @@ npm run dev
 <h3> Front-end </h3>
 
 ```
-# abra outro terminal na pasta raiz nlw3_omnistack e navegue para web:
+# abra outro terminal na pasta raiz NLW-03 e navegue para web:
 cd web
 
 #instale as dependências:
@@ -103,7 +104,7 @@ npm start
 <h4> Para conseguir trabalhar com a versão mobile, você precisar trabalhar com o Expo, pois foi como essa aplicação foi desenvolvida, para isso acesse <a href="https://expo.io/learn">Expo</a> para iniciar o projeto e depois continue com as instruções.</h4>
 
 ```
-# abra outro terminal na pasta raiz nlw3_omnistack e navegue para mobile:
+# abra outro terminal na pasta raiz NLW-03 e navegue para mobile:
 cd mobile
 
 # instale as dependências:
@@ -113,9 +114,9 @@ npm install
 <h4> Você também vai precisar fazer uma alteração na pasta api.ts: </h4>
 
 ```
-  baseURL: 'http://192.168.1.5:3333',
+  baseURL: 'http://192.168.1.1:3333',
 ```
-<p> substitua http://192.168.1.5 pelo IP de seu computador </p>
+<p> substitua http://192.168.1.1 pelo IP de seu computador </p>
 
 ```
 # rode o projeto:
@@ -127,7 +128,7 @@ npm start
 ------------
 
 <h1 align="center">
- <img src='web/src/images/reactgif.gif'>
+ <img src='web/src/images/funcionamentoHappy.gif'>
 </h1>
 
 <p align="center"> Desenvolvido por © Marx Khristie Cavalheiro Pires Neves. </p>
